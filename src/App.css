@@ -1,0 +1,29 @@
+nav {
+  font-family: 'Abril Fatface', cursive;
+  background: #000;
+  text-align: center;
+  font-size: 22px;
+  display: flex;
+  justify-content: space-around;
+}
+
+nav a {
+  color: #fff;
+  line-height: 3;
+  text-decoration: none;
+  padding: 0 20px;
+  letter-spacing: 1px;
+}
+
+nav a:hover {
+  background: #fff;
+  color: #000;
+}
+
+.page-wrapper {}
+
+.home {
+  background: url(./home-bg.jpg) no-repeat center;
+  background-size: auto 125%;
+}
+
