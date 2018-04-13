@@ -5,8 +5,8 @@ class Footer extends Component {
   render() {
   	const currentYear = new Date().getFullYear();
     return (
-      <footer>
-        <div className="main-footer">
+      <footer id="contact" className="site-wrapper">
+        <div className="main-footer site-limit">
         	<div className="contact">
         	<span>Contact:</span>
         	<a href="mailto:booking@dahea.rocks">booking@dahea.rocks</a>

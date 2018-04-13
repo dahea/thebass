@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter as SiteRouter, Link, Route } from 'react-router-dom';
 
-import './App.less';
+import './styles/App.less';
 import Nav from './Nav'; 
+import Instagram from './Instagram' ;
 import Footer from './footer'; 
+
 import Home from './Home' ;
 import About from './About' ;
 import Shows from './Shows' ;
@@ -23,6 +25,7 @@ class App extends Component {
           <Route path="/Shows" component={Shows} />
           <Route path="/Projects" component={Projects} />
           <Route path="/Photos" component={Photos} />
+          <Instagram />
           <Footer />
         </div>
       </SiteRouter>

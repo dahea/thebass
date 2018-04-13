@@ -7,8 +7,6 @@ class Home extends Component {
 	    setMinHeight();
 	}
 
-
-
   render() {
     return (
       <div className="page-wrapper home">

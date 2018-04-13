@@ -4,13 +4,17 @@ import {setMinHeight} from './helpers';
 class Projects extends Component {
 
 	componentDidMount() {
-	    setMinHeight();
+	    //setMinHeight();
 	}
 
   render() {
     return (
       <div className="page-wrapper projects">
-        my projects page
+        <div className="site-wrapper">
+          <div className="site-limit">
+            <h1>my projects page</h1>
+          </div>
+        </div>
       </div>
     );
   }
