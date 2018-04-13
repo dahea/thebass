@@ -55,12 +55,6 @@ body {
   background-position: bottom left;
 }
 
-.projects .banner {
-  background-image: url(../images/bg-long.jpg);
-  background-position: center 57%;
-  background-size: 120% auto;
-}
-
 h1, h2, h3, h4 {
   font-family: 'Merriweather', serif;
 }
@@ -90,6 +84,7 @@ nav {
     display: flex;
     justify-content: flex-end;
     padding: 0 20px 0;
+    max-width: 1440px;
 
     &:last-child {
       padding-bottom: 0;
@@ -102,10 +97,15 @@ nav {
     text-decoration: none;
     padding: 0 20px;
 
+    &:last-child {
+      margin-right: 20px;
+    }
+
     &.dahea {
       color: @black;
       background: @white;
       margin-right: auto;
+      padding: 0 40px;
     }
 
     &:hover {
