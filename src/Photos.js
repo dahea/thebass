@@ -1,68 +1,82 @@
 import React, { Component } from 'react';
 
-function expandImage(e){
-    let img = e.srcElement.currentSrc;
-    let windowScroll = window.scrollY;
+function galleryInit(gallery){
+  const galleryItems = gallery.querySelectorAll('.galleryThumb');
+  const imageWrapper = document.querySelector('.galleryImage');
+  const closeButton = imageWrapper.querySelector('.close');
+  const pageBody = document.querySelector('#root');
+  const imageObject = imageWrapper.querySelector('img');
+  const galleryLength = galleryItems.length - 1;
+  const next = imageWrapper.querySelector('.next');
+  const prev = imageWrapper.querySelector('.prev');
 
-    const pageBody = document.querySelector('#root');
-    const imageWrapper = document.querySelector('.galleryImage');
-    const imageObject = imageWrapper.querySelector('img');
-    const close = imageWrapper.querySelector('.close');
+  let windowScroll = window.scrollY;
 
-    pageBody.style.position = 'fixed';
-    pageBody.style.top = -windowScroll + 'px';
-    imageWrapper.classList.add('active');
-    imageObject.src = img;
+  function openOverlay(){
+      pageBody.style.position = 'fixed';
+      pageBody.style.top = -windowScroll + 'px';
+      imageWrapper.classList.add('active');
 
-    close.addEventListener('click', function(){
+      if (window.screen.width > window.screen.height) {
+        imageObject.style.width = 'auto';
+        imageObject.style.height = 'inherit';
+      } else {
+        console.log('taller')
+        imageObject.style.width = 'inherit';
+        imageObject.style.height = 'auto';
+      }
+  }
+
+  function closeOverlay(){
       imageWrapper.classList.remove('active');
       imageObject.src = '';
       pageBody.style.position = 'static';
       window.scrollTo(0, windowScroll);
-    });
 
-    if (window.screen.width > window.screen.height) {
-      imageObject.style.width = 'auto';
-      imageObject.style.height = 'inherit';
-    } else {
-      console.log('taller')
-      imageObject.style.width = 'inherit';
-      imageObject.style.height = 'auto';
+
+      pageBody.style.position = 'fixed';
+      pageBody.style.top = -windowScroll + 'px';
+      imageWrapper.classList.add('active');
+  }
+
+  function setImage(index){
+    let img = galleryItems[index].querySelector('img').currentSrc;
+    imageWrapper.querySelector('img').src = img;
+    setGalleryControls(index);
+  }
+
+  function setGalleryControls(index){
+    galleryLength > index ? next.classList.add('active') : next.classList.remove('active');
+    index === 0 ? prev.classList.remove('active') : prev.classList.add('active');
+    if (galleryLength > index) {
+      next.addEventListener('click', function(){
+        setImage(index+1);
+      });
     }
-}
 
-function setGalleryControls(imageWrapper){
-  console.log('set gallery control functions here');
+    if (index != 0) {
+      prev.addEventListener('click', function(){
+        setImage(index-1);
+      });
+    }
+  }
 
-  const next = imageWrapper.querySelector('.next');
-  const prev = imageWrapper.querySelector('.prev');
-
-
-  next.addEventListener('click', function(){
-    //imageObject.src = '';
-    console.log(this);
+  closeButton.addEventListener('click', function(){
+      closeOverlay();
   });
-
-  prev.addEventListener('click', function(){
-    //imageObject.src = '';
-    console.log(this);
-  });
-
-}
-
-function galleryInit(gallery){
-  const galleryItems = gallery.querySelectorAll('.galleryThumb');
-  const galleryLength = galleryItems.length;
-
-  setGalleryControls(gallery.querySelector('.galleryImage'));
-
-
-  console.log(galleryLength);
 
   galleryItems.forEach((galleryItem, index) => {
-    galleryItem.addEventListener('click', expandImage);
+    galleryItem.addEventListener('click', function(){
+      openOverlay();
+    });
   });
 
+  galleryItems.forEach((galleryItem, index) => {
+    galleryItem.addEventListener('click', function(){
+      setImage(index);
+      setGalleryControls(index);
+    });
+  });
 }
 
 class Photos extends Component {
