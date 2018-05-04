@@ -10,9 +10,10 @@ function galleryInit(gallery){
   const next = imageWrapper.querySelector('.next');
   const prev = imageWrapper.querySelector('.prev');
 
-  let windowScroll = window.scrollY;
+  let windowScroll;
 
   function openOverlay(){
+      windowScroll = window.scrollY;
       pageBody.style.position = 'fixed';
       pageBody.style.top = -windowScroll + 'px';
       imageWrapper.classList.add('active');
@@ -32,11 +33,6 @@ function galleryInit(gallery){
       imageObject.src = '';
       pageBody.style.position = 'static';
       window.scrollTo(0, windowScroll);
-
-
-      pageBody.style.position = 'fixed';
-      pageBody.style.top = -windowScroll + 'px';
-      imageWrapper.classList.add('active');
   }
 
   function setImage(index){
@@ -54,7 +50,7 @@ function galleryInit(gallery){
       });
     }
 
-    if (index != 0) {
+    if (index !== 0) {
       prev.addEventListener('click', function(){
         setImage(index-1);
       });
@@ -93,10 +89,10 @@ class Photos extends Component {
               <h1>Gallery</h1>
 
               <div id="gallery">
-                <div className="galleryThumb">
+                <div className="galleryThumb portrait">
                   <img src="./images/gallery/001.jpg" alt="gallery image 1" />
                 </div>
-                <div className="galleryThumb">
+                <div className="galleryThumb portrait">
                   <img src="./images/gallery/002.jpg" alt="gallery image 2" />
                 </div>
                 <div className="galleryThumb">
@@ -107,6 +103,18 @@ class Photos extends Component {
                 </div>
                 <div className="galleryThumb">
                   <img src="./images/gallery/005.jpg" alt="gallery image 5" />
+                </div>
+                <div className="galleryThumb">
+                  <img src="./images/gallery/006.jpg" alt="gallery image 6" />
+                </div>
+                <div className="galleryThumb portrait">
+                  <img src="./images/gallery/007.jpg" alt="gallery image 7" />
+                </div>
+                <div className="galleryThumb portrait">
+                  <img src="./images/gallery/008.jpg" alt="gallery image 8" />
+                </div>
+                <div className="galleryThumb portrait">
+                  <img src="./images/gallery/009.jpg" alt="gallery image 9" />
                 </div>
 
                 <div className="galleryImage">
