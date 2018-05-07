@@ -10,7 +10,11 @@ class Home extends Component {
   render() {
     return (
       <div className="page-wrapper home">
-        my home page
+        <video poster="./images/home-bg.jpg" id="bgvid" autoPlay muted loop>
+          <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4"  />
+          <source src="http://clips.vorwaerts-gmbh.de/VfE.webm"      type="video/webm" />
+          <source src="http://clips.vorwaerts-gmbh.de/VfE.ogv"       type="video/ogg"  />
+        </video>
       </div>
     );
   }

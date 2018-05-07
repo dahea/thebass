@@ -1,12 +1,12 @@
 #gallery {
-  .flex;
-  .justify-content(space-between);
-  .flex-wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 40px;
 
   .galleryThumb {
     .relative;
-    width: 320px;
-    height: 320px;
+    .w100;
+    height: 280px;
     overflow: hidden;
     
 
@@ -27,6 +27,32 @@
       }
   }
 
+  @media (max-width: 900px) {
+
+    .galleryThumb {
+      height: 200px;
+    }
+
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr 1fr;
+
+    .galleryThumb {
+      height: 200px;
+    }
+
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+
+    .galleryThumb {
+      height: 280px;
+    }
+
+  }
+
   .galleryImage {
     .animate;
     .fixed;
@@ -35,7 +61,7 @@
     .t0;
     .l0;
     .o(0);
-    .z(1);
+    .z(4);
     .no-events;
     text-align: center;
     background: @black80;
