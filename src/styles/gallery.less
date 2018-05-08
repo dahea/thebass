@@ -9,7 +9,6 @@
     height: 280px;
     overflow: hidden;
     
-
     img {
       .animate;
       .pointer;
@@ -19,12 +18,19 @@
       .h100;
       width: auto;
       .transform(translate(-50%,-50%));
+      .filter(sepia(1) hue-rotate(145deg));
     }
 
     &.portrait img {
-        .w100;
-        height: auto;
+      .w100;
+      height: auto;
+    }
+
+    &:hover {
+      img {
+        .filter(sepia(0) hue-rotate(0));
       }
+    }
   }
 
   @media (max-width: 900px) {
@@ -49,8 +55,11 @@
 
     .galleryThumb {
       height: 280px;
-    }
 
+      img {
+        .filter(sepia(0) hue-rotate(0));
+      }
+    }
   }
 
   .galleryImage {

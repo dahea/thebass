@@ -56,11 +56,24 @@
 
 h1, h2, h3, h4 {
   font-family: 'Merriweather', serif!important;
+  margin-bottom: 20px;
 }
 
 h1 {
-  font-size: 18px;
+  font-size: 32px;
   margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 18px;
 }
 
 p {
@@ -372,10 +385,134 @@ footer {
   }
 }
 
-.gear, .bio {
-  background: #fff;
-  color: #000;
+
+.offset-box-wrapper {
+  .relative;
+  .text-wrapper {
+    .relative;
+    margin-top: 40px;
+    //background: @gray90;
+    background: hsla(198, 83%, 95%, 1);
+
+    h2 {
+      line-height: 1.75;
+      span {
+        .block;
+        text-align: right;
+      }
+    }
+  }
+
+  .img-wrapper {
+    .z(1);
+    .absolute;
+    .h100;
+    top: -40px;
+    width: 40%;
+    max-width: 400px;
+    max-height: 520px;
+    overflow: hidden;
+
+    img {
+      bottom: -40px;
+      .absolute;
+      .w100;
+    }
+  }
+
+
+  &.left {
+    .text-wrapper {
+      padding: 100px 35% 120px 100px;
+      margin-right: 80px;
+    }
+
+    .img-wrapper {
+      .r0;
+    }
+
+  }
+
+  &.right {
+    .text-wrapper {
+      .relative;
+      padding: 100px 100px 120px 35%;
+      margin-left: 80px;
+    }
+
+    .img-wrapper {
+      .l0;
+    }
+  }
+
+  &.image-wide {
+
+    .img-wrapper {
+      width: 60%;
+      max-width: 600px;
+
+      img {
+        bottom: auto;
+      }
+    }
+
+    &.left {
+      .text-wrapper {
+        padding: 100px 45% 120px 100px;
+        margin-right: 80px;
+      }
+    }
+
+    &.right {
+      .text-wrapper {
+        .relative;
+        padding: 100px 100px 120px 45%;
+        margin-left: 80px;
+      }
+    }
+  }
+
+  @media (max-width: 960px) {
+
+    .img-wrapper {
+      img {
+        bottom: auto;
+      }
+    }
+
+    &.left {
+      .text-wrapper {
+        padding: 40px 40% 60px 40px;
+        margin-right: 40px;
+      }
+    }
+
+    &.right {
+      .text-wrapper {
+        padding: 40px 40px 60px 40%;
+        margin-left: 40px;
+      }
+    }
+
+    &.image-wide {
+      &.left {
+        .text-wrapper {
+          padding: 40px 60% 60px 40px;
+          margin-right: 40px;
+        }
+      }
+
+      &.right {
+        .text-wrapper {
+          padding: 40px 40px 60px 60%;
+          margin-left: 40px;
+        }
+      }
+    }
+  }
 }
+
+
 
 .lightwidget-widget {
   .block;
