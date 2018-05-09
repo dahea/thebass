@@ -76,6 +76,30 @@ h4 {
   font-size: 18px;
 }
 
+@media (max-width: 640px) {
+
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  h4 {
+    font-size: 16px;
+  }
+}
+
 p {
   line-height: 1.5;
   margin-bottom: .75em;
@@ -430,7 +454,6 @@ footer {
     .img-wrapper {
       .r0;
     }
-
   }
 
   &.right {
@@ -510,9 +533,96 @@ footer {
       }
     }
   }
+
+  @media (max-width: 680px) {
+
+    .flex;
+    .flex-direction(column);
+
+    .text-wrapper {
+      background: none;
+    }
+
+    .img-wrapper {
+      .relative;
+      .t0;
+
+      img {
+        .relative;
+        bottom: auto;
+      }
+    }
+
+    &.left, &.right {
+      .text-wrapper {
+        padding: 0;
+        margin-right: 0;
+        margin-left: 0;
+      }
+    }
+
+    &.image-wide {
+      &.left, &.right {
+        .text-wrapper {
+          padding: 0;
+          margin-right: 0;
+          margin-left: 0;
+        }
+
+        .img-wrapper {
+          .w100;
+          max-width: auto;
+        }
+      }
+    }
+
+    &.bio {
+      .flex-direction(column-reverse);
+      .text-wrapper {
+        position: static;
+
+        h2 {
+          .absolute;
+          .t0;
+          .r0;
+          padding-top: 15%;
+          max-width: 55%;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+
+    &.bio {
+      .text-wrapper {
+        position: static;
+        h2 {
+          .relative;
+          .t0;
+          .r0;
+          .w100;
+          padding-top: 0;
+          max-width: none;
+        }
+      }
+
+      .img-wrapper {
+        .w100;
+        height: 340px;
+        max-height: none;
+        max-width: none;
+        background: url(../images/dahea-portrait.jpg) no-repeat center;
+        background-size: cover;
+
+        img {
+          .none;
+        }
+      }
+    }
+  }
+
 }
-
-
 
 .lightwidget-widget {
   .block;

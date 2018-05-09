@@ -9,7 +9,7 @@ function galleryInit(gallery){
   const galleryLength = galleryItems.length - 1;
   const next = imageWrapper.querySelector('.next');
   const prev = imageWrapper.querySelector('.prev');
-
+  let isPortrait = false;
   let windowScroll;
 
   function openOverlay(){
@@ -17,20 +17,13 @@ function galleryInit(gallery){
       pageBody.style.position = 'fixed';
       pageBody.style.top = -windowScroll + 'px';
       imageWrapper.classList.add('active');
-
-      if (window.screen.width > window.screen.height) {
-        imageObject.style.width = 'auto';
-        imageObject.style.height = 'inherit';
-      } else {
-        console.log('taller')
-        imageObject.style.width = 'inherit';
-        imageObject.style.height = 'auto';
-      }
   }
 
   function closeOverlay(){
       imageWrapper.classList.remove('active');
       imageObject.src = '';
+      imageObject.style.width = '';
+      imageObject.style.height = '';
       pageBody.style.position = 'static';
       window.scrollTo(0, windowScroll);
   }
@@ -38,7 +31,30 @@ function galleryInit(gallery){
   function setImage(index){
     let img = galleryItems[index].querySelector('img').currentSrc;
     imageWrapper.querySelector('img').src = img;
+    resizeImage();
     setGalleryControls(index);
+  }
+
+  function resizeImage(){
+    if (window.innerWidth > window.innerHeight) {
+      if (isPortrait) {
+        imageObject.style.width = 'auto';
+        imageObject.style.height = 'inherit';
+
+      } else {
+        imageObject.style.width = 'inherit';
+        imageObject.style.height = 'auto';
+      }
+    } else {
+      if (isPortrait) {
+        imageObject.style.width = 'inherit';
+        imageObject.style.height = 'auto';
+
+      } else {
+        imageObject.style.width = 'auto';
+        imageObject.style.height = 'inherit';
+      }
+    }
   }
 
   function setGalleryControls(index){
@@ -69,6 +85,7 @@ function galleryInit(gallery){
 
   galleryItems.forEach((galleryItem, index) => {
     galleryItem.addEventListener('click', function(){
+      isPortrait = this.classList.contains('portrait');
       setImage(index);
       setGalleryControls(index);
     });
