@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import {setMinHeight} from './helpers'; 
+import portrait from './images/dahea-portrait.jpg'; 
 
 class About extends Component {
-
-	componentDidMount() {
-	    // setMinHeight();
-	}
 
   render() {
     return (
@@ -24,7 +20,7 @@ class About extends Component {
                 <p>A versatile musician, DaHea has played with bands ranging in genre, from alt-country band Karen & the Sorrows, to indie pop-punk band Castle Black, and most recently, acoustic-electric band, Hamin Reed.</p>
               </div>
               <div className="img-wrapper">
-                <img src="./images/dahea-portrait.jpg" alt="DaHea An - NYC based bassist" />
+                <img src={portrait} alt="DaHea An - NYC based bassist" />
               </div>
             </div>
           </div>

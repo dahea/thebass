@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, NavLink, Route } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class Nav extends Component {
 

@@ -1,4 +1,13 @@
 import React, { Component } from 'react';
+import image01 from './images/gallery/001.jpg'; 
+import image02 from './images/gallery/002.jpg'; 
+import image03 from './images/gallery/003.jpg'; 
+import image04 from './images/gallery/004.jpg'; 
+import image05 from './images/gallery/005.jpg'; 
+import image06 from './images/gallery/006.jpg'; 
+import image07 from './images/gallery/007.jpg'; 
+import image08 from './images/gallery/008.jpg'; 
+import image09 from './images/gallery/009.jpg'; 
 
 function galleryInit(gallery){
   const galleryItems = gallery.querySelectorAll('.galleryThumb');
@@ -15,6 +24,7 @@ function galleryInit(gallery){
   function openOverlay(){
       windowScroll = window.scrollY;
       pageBody.style.position = 'fixed';
+      pageBody.style.width = '100%';
       pageBody.style.top = -windowScroll + 'px';
       imageWrapper.classList.add('active');
   }
@@ -25,6 +35,7 @@ function galleryInit(gallery){
       imageObject.style.width = '';
       imageObject.style.height = '';
       pageBody.style.position = 'static';
+      pageBody.style.width = 'auto';
       window.scrollTo(0, windowScroll);
   }
 
@@ -92,6 +103,58 @@ function galleryInit(gallery){
   });
 }
 
+class ImagesList extends Component {
+
+  render() {
+
+   const galleryImages = [
+    {url: image01, portrait: true},
+    {url: image02, portrait: true},
+    {url: image03, portrait: false},
+    {url: image04, portrait: false},
+    {url: image05, portrait: false},
+    {url: image06, portrait: false},
+    {url: image07, portrait: true},
+    {url: image08, portrait: true},
+    {url: image09, portrait: true}
+   ];
+
+    return (
+      <div className="galleryThumbsWrapper">
+          {galleryImages.map((imageItem, index) => 
+            <ImageComponent
+              key={index}
+              image={imageItem}
+            />
+          )}
+      </div>
+    )
+  }
+}
+
+class ImageComponent extends Component {
+  render() {
+    const key = this.props.key;
+    const image = this.props.image;
+    const imageUrl = image.url;
+    let imagePortrait = image.portrait;
+
+    if (imagePortrait) {
+        return (
+            <div className="galleryThumb portrait">
+              <img src={imageUrl} alt={key}/>
+            </div>
+        );
+    } else {
+        return (
+            <div className="galleryThumb">
+              <img src={imageUrl} />
+            </div>
+        );
+    }
+  }
+}
+
 class Photos extends Component {
 	componentDidMount() {
     galleryInit(document.querySelector('#gallery'));
@@ -104,36 +167,9 @@ class Photos extends Component {
         <div className="site-wrapper">
             <div className="site-limit">
               <h1>Gallery</h1>
-
               <div id="gallery">
-                <div className="galleryThumb portrait">
-                  <img src="./images/gallery/001.jpg" alt="gallery image 1" />
-                </div>
-                <div className="galleryThumb portrait">
-                  <img src="./images/gallery/002.jpg" alt="gallery image 2" />
-                </div>
-                <div className="galleryThumb">
-                  <img src="./images/gallery/003.jpg" alt="gallery image 3" />
-                </div>
-                <div className="galleryThumb">
-                  <img src="./images/gallery/004.jpg" alt="gallery image 4" />
-                </div>
-                <div className="galleryThumb">
-                  <img src="./images/gallery/005.jpg" alt="gallery image 5" />
-                </div>
-                <div className="galleryThumb">
-                  <img src="./images/gallery/006.jpg" alt="gallery image 6" />
-                </div>
-                <div className="galleryThumb portrait">
-                  <img src="./images/gallery/007.jpg" alt="gallery image 7" />
-                </div>
-                <div className="galleryThumb portrait">
-                  <img src="./images/gallery/008.jpg" alt="gallery image 8" />
-                </div>
-                <div className="galleryThumb portrait">
-                  <img src="./images/gallery/009.jpg" alt="gallery image 9" />
-                </div>
-
+                <ImagesList />
+                
                 <div className="galleryImage">
                   <div className="close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg></div>
                   <img src="" />
@@ -145,8 +181,8 @@ class Photos extends Component {
                   <div className="galleryControls next">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/></svg>
                   </div>
-
                 </div>
+                
               </div>
             </div>
           </div>

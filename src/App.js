@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as SiteRouter, Link, Route } from 'react-router-dom';
+import { BrowserRouter as SiteRouter, Route } from 'react-router-dom';
 
 import './styles/App.less';
 import Nav from './Nav'; 
@@ -17,7 +17,7 @@ class App extends Component {
   render() {
 
     return (
-      <SiteRouter>
+      <SiteRouter basename="previews/bass">
         <div className="site-wrapper">
           <Nav />
           <Route exact path="/" component={Home} />

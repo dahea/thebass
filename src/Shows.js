@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {setMinHeight} from './helpers'; 
 
 import $ from 'jquery';
 import 'moment/min/moment.min.js';

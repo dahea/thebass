@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
-import {setMinHeight} from './helpers'; 
 
 class Projects extends Component {
-
-	componentDidMount() {
-	    //setMinHeight();
-	}
 
   render() {
     return (
