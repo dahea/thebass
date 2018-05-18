@@ -9,9 +9,9 @@
   .galleryThumb {
     .relative;
     .w100;
-    height: 280px;
+    height: 360px;
     overflow: hidden;
-    background: url('../images/pre-loader.gif') no-repeat center hsla(198, 83%, 95%, 1);
+    background: url('../images/pre-loader.gif') no-repeat center @bgcolor;
     
     img {
       .animate;
@@ -35,6 +35,14 @@
         .filter(sepia(0) hue-rotate(0));
       }
     }
+  }
+
+  @media (max-width: 1400px) {
+
+    .galleryThumb {
+      height: 280px;
+    }
+
   }
 
   @media (max-width: 900px) {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {setMinHeight} from './helpers'; 
+import video from './images/DaHea-Video-Web.mp4';
 
 class Home extends Component {
 
@@ -11,15 +12,12 @@ class Home extends Component {
     return (
       <div className="page-wrapper home">
         <video poster="./images/home-bg.jpg" id="bgvid" autoPlay muted loop>
-          <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4"  />
-          <source src="http://clips.vorwaerts-gmbh.de/VfE.webm"      type="video/webm" />
-          <source src="http://clips.vorwaerts-gmbh.de/VfE.ogv"       type="video/ogg"  />
+          <source src={video} type="video/mp4"  />
         </video>
       </div>
     );
   }
 }
-
 export default Home;
 
 

@@ -26,7 +26,7 @@ class Nav extends Component {
     return (
       <nav className="site-wrapper">
         <div className="site-limit flush">
-        	<NavLink to="/" className="nav-item dahea">DaHea An | bassist</NavLink>
+        	<NavLink to="/" className="nav-item dahea">DaHea An<span>bassist</span></NavLink>
           <div className="nav-toggle">
             <div className="nav-line left"></div>
             <div className="nav-line right"></div>
