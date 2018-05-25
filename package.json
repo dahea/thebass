@@ -2,7 +2,7 @@
   "name": "thebass",
   "version": "0.1.0",
   "private": true,
-  "homepage" : ".",
+  "homepage": ".",
   "dependencies": {
     "fullcalendar": "^3.9.0",
     "less": "^3.0.1",

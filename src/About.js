@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import portrait from './images/dahea-portrait.jpg'; 
+import portrait from './images/dahea-portrait-medium.jpg'; 
 
 class About extends Component {
 
@@ -13,7 +13,7 @@ class About extends Component {
                 <h2>
                   Providing bass all over the place...
                   <br />
-                  <span>tastefully.</span>
+                  <span>Tastefully.</span>
                 </h2>
               	<p>DaHea An is a bassist and backup singer, currently residing in New York City.</p>
                 <p>Her basslines deliver a catchy and driving groove that add a dynamic element to songs. Her basslines are melodic and punchy, filled with counter melodies that are heavily influenced by latin jazz, blues, and rock.</p>

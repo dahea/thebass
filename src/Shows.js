@@ -26,7 +26,7 @@ class Calendar extends React.Component {
 	      className: 'gcal-event' // an option!
 	    },
 	    contentHeight: 'auto',
-	    noEventsMessage: 'No gigs this month.',
+	    noEventsMessage: 'I don\'t have any shows for this month, but check back soon!',
 	    displayEventEnd: false,
 	    eventColor: 'transparent'
     })
@@ -41,7 +41,6 @@ class Shows extends Component {
 	      <div className="page-wrapper shows">
         	<div className="site-wrapper">
 	          <div className="site-limit">
-	            <h1>Shows</h1>
 		        <Calendar />
 	          </div>
 	        </div>

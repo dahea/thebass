@@ -11,7 +11,7 @@ class Home extends Component {
   render() {
     return (
       <div className="page-wrapper home">
-        <video poster="./images/home-bg.jpg" id="bgvid" autoPlay muted loop>
+        <video poster="./images/video-poster.jpg" id="bgvid" autoPlay muted loop playsInline >
           <source src={video} type="video/mp4"  />
         </video>
       </div>

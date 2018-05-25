@@ -1,13 +1,4 @@
 import React, { Component } from 'react';
-import image01 from './images/gallery/001.jpg'; 
-import image02 from './images/gallery/002.jpg'; 
-import image03 from './images/gallery/003.jpg'; 
-import image04 from './images/gallery/004.jpg'; 
-import image05 from './images/gallery/005.jpg'; 
-import image06 from './images/gallery/006.jpg'; 
-import image07 from './images/gallery/007.jpg'; 
-import image08 from './images/gallery/008.jpg'; 
-import image09 from './images/gallery/009.jpg'; 
 
 function galleryInit(gallery){
   const galleryItems = gallery.querySelectorAll('.galleryThumb');
@@ -40,7 +31,7 @@ function galleryInit(gallery){
   }
 
   function setImage(index){
-    let img = galleryItems[index].querySelector('img').currentSrc;
+    let img = (galleryItems[index].querySelector('img').currentSrc).slice(0,-10) + '-large.jpg';
     imageWrapper.querySelector('img').src = img;
     resizeImage();
     setGalleryControls(index);
@@ -108,22 +99,21 @@ class ImagesList extends Component {
   render() {
 
    const galleryImages = [
-    {url: image01, portrait: true},
-    {url: image02, portrait: true},
-    {url: image03, portrait: false},
-    {url: image04, portrait: false},
-    {url: image05, portrait: false},
-    {url: image06, portrait: false},
-    {url: image07, portrait: true},
-    {url: image08, portrait: true},
-    {url: image09, portrait: true}
+    {url: 'dahea-waystation-bk', portrait: true, alt: 'DaHea playing bass for music video shoot at the Way Station in Brooklyn, NY'},
+    {url: 'dahea-parkside-lounge', portrait: true, alt: 'DaHea playing bass with Hamin Reed at Parkside Lounge in the Lower East Side, NY'},
+    {url: 'dahea-branded-saloon', portrait: false, alt: 'DaHea playing bass with Karen & the Sorrows at Branded Saloon in Brooklyn, NY'},
+    {url: 'dahea-bowery-electric-setting-up', portrait: false, alt: 'DaHea playing bass with Karen & the Sorrows at the Bowery Electric in New York, NY'},
+    {url: 'dahea-nj-clash-bar', portrait: false, alt: 'DaHea playing bass with Castle Black at Clash Bar in Clifton, NJ'},
+    {url: 'dahea-with-dma-delancey', portrait: false, alt: 'DaHea playing bass with Dark Moon Apache at the Delancey in Manhattan, NY'},
+    {url: 'dahea-portrait-nyc-rooftop', portrait: true, alt: 'DaHea portrait photo'},
+    {url: 'dahea-coneyisland', portrait: true, alt: 'DaHea playing bass with Dark Moon Apache near Coney Island in Brooklyn, NY'},
+    {url: 'dahea-delancey-upstairs', portrait: true, alt: 'DaHea playing bass with Bunny Punch at the Delancey in Manhattan, NY'}
    ];
 
     return (
       <div className="galleryThumbsWrapper">
           {galleryImages.map((imageItem, index) => 
             <ImageComponent
-              key={index}
               image={imageItem}
             />
           )}
@@ -134,21 +124,21 @@ class ImagesList extends Component {
 
 class ImageComponent extends Component {
   render() {
-    const key = this.props.key;
     const image = this.props.image;
     const imageUrl = image.url;
+    const imageAlt = image.alt;
     let imagePortrait = image.portrait;
 
     if (imagePortrait) {
         return (
             <div className="galleryThumb portrait">
-              <img src={imageUrl} alt={key}/>
+              <img src={"./images/gallery/" + imageUrl + "-small.jpg"} alt={imageAlt} />
             </div>
         );
     } else {
         return (
             <div className="galleryThumb">
-              <img src={imageUrl} />
+              <img src={"./images/gallery/" + imageUrl + "-small.jpg"} alt={imageAlt} />
             </div>
         );
     }

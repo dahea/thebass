@@ -33,28 +33,9 @@
   background-size: cover;
 }
 
-.banner {
-  height: 340px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: black;
-
-  @media (max-width: 640) {
-    height: 20vh;
-  }
-}
-
-.about .banner {
-  background-image: url(../images/default-bg.jpg);
-  background-position: center 55%;
-}
-
-.shows .banner {
-  background-image: url(../images/bg-4.jpg);
-  background-position: bottom left;
-}
-
 h1, h2, h3, h4 {
+  color: @black;
+  font-weight: 600;
   margin-bottom: 20px;
 }
 
@@ -100,14 +81,20 @@ h4 {
 }
 
 p {
-  line-height: 1.5;
+  line-height: 1.75;
   margin-bottom: .75em;
   &:last-child {
     margin-bottom: 0;
   }
 }
 
-a {color: @primary;}
+a {
+  .animate;
+  color: @primary;
+  &:hover {
+    color: saturate(@primary, 25%);
+  }
+}
 
 nav {
   background: @black;
@@ -268,103 +255,65 @@ nav {
   }
 
   @media (max-width: 480px) {
-    a {
-      &.dahea {
-        padding: 0 20px;
-      }
+    a.dahea {
+      font-size: 22px;
+      padding: 0 20px;
+    }
+
+    .nav-toggle {
+      top: 20px;
     }
   }
 }
 
-
-
 footer {
   position: relative;
-  background: #fff;
-  color: #000;
+  background: #000;
+  color: #fff;
   text-align: center;
+
+  h1, h2, h4, h3 {
+    color: @white;
+  }
 }
 
 .main-footer {
   .relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  text-align: center;
   padding: 60px 0 20px;
 
-  span {
-    .block;
-    margin-bottom: 10px;
+  p {
+    margin-bottom: 40px;
   }
 
-  .contact {
-    text-align: left;
-    margin: 0 40px;
+  .social-links {
+    .flex;
+    .justify-content(center);
 
-    h3 {margin-bottom: 0;}
-
-     a {
-      &:hover {
-      }
-    }
-  }
-
-  .social {
-    margin: 0 40px;
-    text-align: right;
-    .social-links {
-      .flex;
-      justify-content: flex-end;
-    }
     a {
       width: 40px;
       height: 40px;
-      margin-left: 20px;
+      margin: 0 10px;
       svg {
         .block;
         width: 40px;
         height: 40px;
-        fill: @black;
+        fill: @primary;
+        background: @black;
       }
+
       &:hover {
-        background: @white;
-        svg {fill: @primary}
+        svg {
+          fill: saturate(@primary, 25%);
+          background: @black;
+        }
       }
     }
   }
 
-  @media (max-width: 580px) {
-    .block;
-
-    .contact {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .social {
-      .social-links {
-        .justify-content(center);
-      }
-
-      a {
-        margin-left: 10px;
-        margin-right: 10px;
-      }
-    }
-  }
-
+ 
   @media (max-width: 480px) {
-
     padding-top: 40px;
-
-    &:before {
-      left: 20px;
-      border-width: 20px;
-    }
-    .contact, .social {
-      margin-left: 20px;
-      margin-right: 20px;
-    }
   }
 
 }
@@ -374,15 +323,14 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 40px auto 0;
+  margin: 20px auto 0;
   padding: 20px 0;
   background: @black;
   color: #fff;
 }
 
 .instagram-feed {
-  background: #000;
-  color: #fff;
+  background: #fff;
 }
 
 .home {
@@ -397,8 +345,15 @@ footer {
     height: auto;
     z-index: -1;
     .transform(translateX(-50%) translateY(-50%));
-    background: url(../images/home-bg.jpg) no-repeat;
+    background: url(../images/video-poster.jpg) no-repeat;
     background-size: cover;
+  }
+
+  @media (orientation: portrait){
+    video {
+      background: url(../images/default-bg-mobile.jpg) no-repeat top center;
+      background-size: cover;
+    }
   }
 }
 
@@ -408,11 +363,11 @@ footer {
   .text-wrapper {
     .relative;
     margin-top: 40px;
-    //background: @gray90;
-    background: @bgcolor;
+    background: @white;
+    box-shadow: 1px 1px 1px @black05;
 
     h2 {
-      line-height: 1.75;
+      line-height: 1.5;
       span {
         .block;
       }
@@ -532,6 +487,7 @@ footer {
     .flex-direction(column);
 
     .text-wrapper {
+      box-shadow: none;
       background: none;
     }
 
@@ -604,7 +560,7 @@ footer {
         height: 340px;
         max-height: none;
         max-width: none;
-        background: url(../images/dahea-portrait.jpg) no-repeat center;
+        background: url(../images/dahea-portrait-medium.jpg) no-repeat center;
         background-size: cover;
 
         img {
@@ -643,7 +599,7 @@ footer {
     padding-top: 35px;
     height: 0;
     overflow: hidden;
-    background: url('../images/pre-loader.gif') no-repeat center lighten(saturate(@primary, 50%),40%);
+    background: url('../images/pre-loader.gif') no-repeat center @white;
 
     iframe {
       .absolute;
