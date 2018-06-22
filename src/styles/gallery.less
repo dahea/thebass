@@ -12,7 +12,7 @@
     height: 360px;
     overflow: hidden;
     background: url('../images/pre-loader.gif') no-repeat center @white;
-    
+
     img {
       .animate;
       .pointer;
@@ -27,7 +27,10 @@
 
     &.portrait img {
       .w100;
+      .t0;
       height: auto;
+      bottom: auto;
+      .transform(translate(-50%,0%));
     }
 
     &:hover {
@@ -110,6 +113,8 @@
     }
 
     img {
+      .h100;
+      max-width: 100%;
     }
 
     .galleryControls {
