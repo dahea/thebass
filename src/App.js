@@ -17,7 +17,7 @@ class App extends Component {
   render() {
 
     return (
-      <SiteRouter basename="previews/bass">
+      <SiteRouter basename="thebass">
         <div className="site-wrapper">
           <Nav />
           <Route exact path="/" component={Home} />
